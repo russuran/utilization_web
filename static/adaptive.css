@@ -1,0 +1,79 @@
+@media screen and (max-width: 975px) {
+  .content{
+    flex-direction: column;
+  }
+  .rf-map {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 780px) {
+  .form-deisgn, .form-deisgn-teh {
+    margin-bottom: 12px;
+    width: auto;
+    margin-top: 5px;
+}
+
+  a[href^="tel:"] {
+    display: flex;
+    margin-left: auto;
+    margin-right: 16px;
+  }
+
+  .dashed {
+    border-bottom: 2px dashed #34b8c6;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  header{
+    width: 100vw;
+  }
+  .left-side, .logo-wrapp{
+    display: none;
+  }
+  .left-side-mobile{
+    display: flex;
+  }
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    }
+  .header-content{
+    margin: 5px 5px;
+    height: 6vh;
+    margin-top: 8px;
+  }
+  .content {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .content-text{
+    font-size: 12px;
+  }
+  .symbol-text{
+    font-size: 17px;
+  }
+  .footer-content {
+    height: 6vh;
+    margin: 5px 5px;
+  }
+  .forma{
+    margin: 0px 5px;
+    height: auto;
+  }
+  .upper-symbols-mobile{
+    display: flex;
+    flex-direction: column;
+  }
+  .upper-symbols{
+    display: none;
+  }
+  .symbol{
+    height: auto;
+    padding-bottom: 8px;
+  }
+}
