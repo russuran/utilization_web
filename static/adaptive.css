@@ -13,7 +13,12 @@
     margin-bottom: 12px;
     width: auto;
     margin-top: 5px;
-}
+  }
+
+  .footer-content{
+    font-size: 10px;
+
+  }
 
   a[href^="tel:"] {
     display: flex;
@@ -58,8 +63,9 @@
     font-size: 17px;
   }
   .footer-content {
-    height: 6vh;
-    margin: 5px 5px;
+    height: auto;
+    margin: 5px 0px;
+    width: 97%;
   }
   .forma{
     margin: 0px 5px;
@@ -73,7 +79,13 @@
     display: none;
   }
   .symbol{
-    height: auto;
+    height: 90px;
     padding-bottom: 8px;
+  }
+  .symbol-form{
+    height: 415px;
+  }
+  .symbol-bottom{
+    height: 430px;
   }
 }
