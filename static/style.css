@@ -18,10 +18,12 @@ footer{
     justify-content: center;
     animation: 1s ease-out 0s 1 slideInFromBottom;
 }
-
+html {
+    font-family: 'ubuntu-font';
+}
 body{
     background: url('/static/bg.svg');
-    height: auto;
+    height: 100vh;
     font-family: 'ubuntu-font';
     margin: 0px;
 }
@@ -179,6 +181,24 @@ main {
     color: black;
 }
 
+.adr {
+    display:flex;
+    min-width: 108px;
+    height: 85px;
+    align-items: center;
+    color: black;
+    transition: all .3s;
+    text-decoration: none;
+}
+
+.adr:hover{
+    color: #34ba96;
+   transform: scale(1.05);
+   transition: all .3s;
+   cursor: pointer;
+
+}
+
 .left-side{
     display: flex;
     flex-direction: row;
@@ -231,6 +251,12 @@ a[href^="tel:"]:hover .phone-img {
     margin-top: 7px;
 }
 
+.map-img {
+    width: 24px;
+    height: 24px;
+    margin-right: 3px;
+    margin-top: 2px;
+}
 
 .left-side-mobile{
     display: none;
@@ -403,25 +429,32 @@ a[href^="tel:"]:hover .phone-img {
     }
 }
 /* Цвета регионов */
-.rf-map [data-code="RU-SAR"] {
+.rf-map [data-code="RU-CU"] {
     fill: #116f21;
     cursor: pointer;
 }
-.rf-map [data-code="RU-SA"] {
+.rf-map [data-code="RU-ME"] {
+    fill: #116f21;
+    cursor: pointer;
+}
+.rf-map [data-code="RU-UD"] {
     fill: #d17520;
     cursor: pointer;
 }
-.rf-map [data-code="RU-KO"] {
+.rf-map [data-code="RU-TA"] {
     fill: #901aad;
 }
-.rf-map [data-code="RU-SAR"]:hover {
+.rf-map [data-code="RU-CU"]:hover {
     fill: #1bad33;
 }
-.rf-map [data-code="RU-SA"]:hover {
+.rf-map [data-code="RU-UD"]:hover {
     fill: #e3954b;
 }
-.rf-map [data-code="RU-KO"]:hover {
+.rf-map [data-code="RU-TA"]:hover {
     fill: #bf37e1;
+}
+.rf-map [data-code="RU-ME"]:hover {
+    fill: #e3954b;
 }
 
 .content{
@@ -565,7 +598,7 @@ a[href^="tel:"]:hover .phone-img {
     display: flex;
     margin: 12px;
     margin-top: 0px;
-    height: auto;
+    height: -webkit-fill-available;
     background-color: #41ae9e;
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 20px;
@@ -629,7 +662,6 @@ textarea {
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 20px;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    max-width: 484px;
 }
 
 .form-deisgn-teh{
@@ -683,6 +715,20 @@ textarea:hover {
     overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
 }
 /* ширина модального окна и его отступы от экрана */
+
+.modal-dialog-cat {
+    position: relative;
+    width: auto;
+    margin: 10px;
+
+}
+@media (min-width: 576px) {
+  .modal-dialog-cat {
+      max-width: 95vw;
+      margin: 30px auto; /* отображение окна по центру */
+  }
+}
+
 .modal-dialog {
     position: relative;
     width: auto;
@@ -795,6 +841,26 @@ button {
     margin-right: 12px;
     margin-top: 10px;
 }
+
+.btn-inner{
+    cursor: pointer;
+    margin: auto 0;
+    margin-bottom: 34px;
+    width: -webkit-fill-available;
+    height: 33px;
+    border-radius: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: darkred;
+    border: 6px solid #41ae9e;
+    background: #b4c4b4;
+    background-size: 500%;
+    transition: all .3s cubic-bezier(0.4, 0, 1, 1);
+    margin-right: 12px;
+    margin-top: 10px;
+}
+
 .org-info{
     display:flex;
     flex-direction: column;
@@ -812,3 +878,320 @@ button {
     justify-content: space-evenly;
     color: white;
 }
+
+	.card {
+  width: 315px;
+  min-height: 350px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Размещаем элементы в колонку */
+  border-radius: 4px;
+  transition: 0.2s;
+  position: relative;
+}
+
+/* При наведении на карточку - меняем цвет тени */
+.card:hover {
+  box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+}
+
+.card__top {
+  flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+  position: relative;
+  overflow: hidden; /* Скрываем, что выходит за пределы */
+}
+
+/* Контейнер для картинки */
+.card__image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+  transition: 0.2s;
+}
+
+/* При наведении - увеличиваем картинку */
+.card__image:hover > img {
+  transform: scale(1.1);
+}
+
+/* Размещаем скидку на товар относительно изображения */
+.card__label {
+  padding: 4px 8px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #ff6633;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+
+.card__bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+  padding: 10px;
+}
+
+.card__prices {
+  display: flex;
+  margin-bottom: -15px;
+  flex: 0 0 50%; /* Размещаем цены равномерно в две колонки */
+}
+
+.card__price::after {
+  content: "₽";
+  margin-left: 4px;
+  position: relative;
+}
+
+.card__price--discount {
+  font-weight: 700;
+  font-size: 19px;
+  color: #414141;
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+
+.card__price--discount::before {
+  font-weight: 400;
+  font-size: 13px;
+  color: #bfbfbf;
+}
+
+.card__price--common {
+  font-weight: 400;
+  font-size: 17px;
+  color: #606060;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+}
+
+.card__price--common::before {
+  content: "Обычная";
+  font-weight: 400;
+  font-size: 13px;
+  color: #bfbfbf;
+}
+
+.card__title {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 150%;
+  color: #414141;
+}
+
+.card__title:hover {
+  color: #ff6633;
+}
+
+.card__add {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  font-size: 17px;
+  color: #70c05b;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #70c05b;
+  border-radius: 4px;
+  cursor: pointer; /* Меняем курсор при наведении */
+  transition: 0.2s;
+  margin-top: auto; /* Прижимаем кнопку к низу карточки */
+}
+
+.card__add:hover {
+  border: 1px solid #ff6633;
+  background-color: #ff6633;
+  color: #fff;
+}
+.cards {
+  display: grid;
+  /* Автоматически заполняем на всю ширину grid-контейнера */
+  grid-template-columns: repeat(auto-fill, 315px);
+  width: 100%;
+  max-width: 95vw; /* Ширина grid-контейнера */
+  justify-content: center;
+  justify-items: center; /* Размещаем карточку по центру */
+  column-gap: 30px; /* Отступ между колонками */
+  row-gap: 40px; /* Отступ между рядами */
+  margin: 0 auto;
+}
+
+      .card {
+    width: 315px;
+    min-height: 350px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Размещаем элементы в колонку */
+    border-radius: 4px;
+    transition: 0.2s;
+    position: relative;
+  }
+  
+  /* При наведении на карточку - меняем цвет тени */
+  .card:hover {
+    box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+  }
+  
+  .card__top {
+    flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+    position: relative;
+    overflow: hidden; /* Скрываем, что выходит за пределы */
+  }
+  
+  /* Контейнер для картинки */
+  .card__image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card__image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+    transition: 0.2s;
+  }
+  
+  /* При наведении - увеличиваем картинку */
+  .card__image:hover > img {
+    transform: scale(1.1);
+  }
+  
+  /* Размещаем скидку на товар относительно изображения */
+  .card__label {
+    padding: 4px 8px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: #ff6633;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .card__bottom {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+    padding: 10px;
+  }
+  
+  .card__prices {
+    display: flex;
+    margin-bottom: -15px;
+    flex: 0 0 50%; /* Размещаем цены равномерно в две колонки */
+  }
+  
+  .card__price::after {
+    content: "₽";
+    margin-left: 4px;
+    position: relative;
+  }
+  
+  .card__price--discount {
+    font-weight: 700;
+    font-size: 19px;
+    color: #414141;
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+  
+  .card__price--discount::before {
+    font-weight: 400;
+    font-size: 13px;
+    color: #bfbfbf;
+  }
+  
+  .card__price--common {
+    font-weight: 400;
+    font-size: 17px;
+    color: #606060;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
+  }
+  
+  .card__price--common::before {
+    content: "Обычная";
+    font-weight: 400;
+    font-size: 13px;
+    color: #bfbfbf;
+  }
+  
+  .card__title {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: #414141;
+  }
+  
+  .card__title:hover {
+    color: #ff6633;
+  }
+  
+  .card__add {
+    display: block;
+    width: 100%;
+    font-weight: 400;
+    font-size: 17px;
+    color: #70c05b;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #70c05b;
+    border-radius: 4px;
+    cursor: pointer; /* Меняем курсор при наведении */
+    transition: 0.2s;
+    margin-top: auto; /* Прижимаем кнопку к низу карточки */
+  }
+  
+  .card__add:hover {
+    border: 1px solid #ff6633;
+    background-color: #ff6633;
+    color: #fff;
+  }
+  .cards {
+    display: grid;
+    /* Автоматически заполняем на всю ширину grid-контейнера */
+    grid-template-columns: repeat(auto-fill, 315px);
+    width: 100%;
+    max-width: 95vw; /* Ширина grid-контейнера */
+    justify-content: center;
+    justify-items: center; /* Размещаем карточку по центру */
+    column-gap: 30px; /* Отступ между колонками */
+    row-gap: 40px; /* Отступ между рядами */
+    margin: 0 auto;
+  }
+
+  .cart-content{
+    animation: 1.2s ease-out 0s 1 slideInFromRight;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+  }

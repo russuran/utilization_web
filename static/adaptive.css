@@ -15,9 +15,26 @@
     margin-top: 5px;
   }
 
-  .footer-content{
-    font-size: 10px;
+  .left-side-mobile a{
+    font-size: 11px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .adr {
+    height: -webkit-fill-available;
+    margin-right: 5px;
+    min-width: 60px;
+  }
 
+  .cart-content{
+    width: auto;
+  }
+  .md {
+    font-size: 15px;
+  }
+
+  .adr a{
+    margin-top: 1px;
   }
 
   a[href^="tel:"] {
@@ -42,6 +59,8 @@
   }
   .left-side-mobile{
     display: flex;
+    align-items: baseline;
+    margin-top: 2px;
   }
   .logo-img {
     width: 40px;
@@ -66,7 +85,19 @@
     height: auto;
     margin: 5px 0px;
     width: 97%;
+    display: flex;
+    flex-direction: column;
   }
+
+  .org-info {
+    margin: 35px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+  } 
+
   .forma{
     margin: 0px 5px;
     height: auto;
@@ -83,9 +114,10 @@
     padding-bottom: 8px;
   }
   .symbol-form{
-    height: 415px;
+    height: 400px;
   }
   .symbol-bottom{
-    height: 430px;
+    height: 415px;
   }
+
 }
